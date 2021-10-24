@@ -2,9 +2,9 @@
   "name": "users",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,8 @@
     "express-graphql": "^0.12.0",
     "graphql": "^15.6.1",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
