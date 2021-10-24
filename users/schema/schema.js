@@ -1,15 +1,7 @@
 const graphql = require("graphql");
-const _ = require("lodash");
+const axios = require("axios");
 
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = graphql;
-
-// Apenas para facilitar (conveniência)
-// (em cenário real usa-se um SGBD, em geral)
-
-const users = [
-  { id: "23", firstName: "Bill", age: 20 },
-  { id: "47", firstName: "Samantha", age: 21 },
-];
 
 // Define o esquema para o tipo (User)
 const UserType = new GraphQLObjectType({
@@ -38,7 +30,10 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parentValue, args) {
         // Retorna o primeiro usuário com o argumento fornecido
-        return _.find(users, { id: args.id });
+        // return _.find(users, { id: args.id });
+        return axios
+          .get(`http://localhost:3000/users/${args.id}`)
+          .then((resposta) => resposta.data);
       },
     },
   },
