@@ -1,10 +1,16 @@
 const { MongoClient } = require("mongodb");
 
+// Defina variáveis de ambiente
+// MONGODB_USER (usuário do mongodb)
+// MONGODB_PASSWORD (senha do usuário do mongodb)
 const user = process.env.MONGODB_USER;
 const pass = process.env.MONGODB_PASSWORD;
-
 const conta = `${user}:${pass}`;
-const uri = `mongodb+srv://${conta}@tceduca-logs.sagyy.mongodb.net/tceduca-logs?retryWrites=true&w=majority`;
+
+const db = "tceduca-logs";
+const host = "tceduca-logs.sagyy.mongodb.net";
+const uri = `mongodb+srv://${conta}@${host}/${db}?retryWrites=true&w=majority`;
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
