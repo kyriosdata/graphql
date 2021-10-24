@@ -14,15 +14,8 @@ async function run() {
   try {
     await client.connect();
     const database = await client.db("tceduca-logs");
-    const logs = database.collection("users");
-    const usuario = {
-      id: "53",
-      firstName: "fabio",
-      age: 34,
-    };
-
-    const result = await logs.insertOne(usuario);
-
+    const users = database.collection("users");
+    const result = await users.find({}).toArray();
     console.log(result);
   } finally {
     await client.close();
