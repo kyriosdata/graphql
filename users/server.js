@@ -3,7 +3,7 @@ const expressGraphQL = require("express-graphql").graphqlHTTP;
 const schema = require("./schema/schema");
 
 // Configuração para desenvolvimento (propriedade graphiql com i abaixo)
-// Direct you browser to localhost:4000/graphql
+// Visite a URL: http://localhost:4000/graphql
 
 const app = express();
 
