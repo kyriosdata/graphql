@@ -22,3 +22,19 @@ uma API REST por meio da qual teremos acesso aos dados.
 O acesso ao banco de dados será feita via [Axios](https://axios-http.com/). Novamente, a opção aqui é pela simplicidade e facilidade de
 uso. Desta forma, podemos nos concentrar no servidor GraphQL sem nos
 distrairmos.
+
+### Servidor GraphQL
+
+Nosso servidor GraphQL é colocado no "ar" por apenas 20 linhas de
+código ([server.js](server.js)). Adicionalmente, também disponibiliza
+cliente gráfico a partir do qual sentenças em GraphQL poderão ser
+dirigidas ao nosso servidor.
+
+Naturalmente, precisamos configurar...
+
+### Configurando GraphQL (esquema)
+
+A configuração é fornecida no arquivo [schema.js](schema/schema.js).
+É neste arquivo que boa parte do nosso esforço é concentrado. Afinal,
+é a partir dele que toda a flexibilidade oferecida por GraphQL
+é configurada.
