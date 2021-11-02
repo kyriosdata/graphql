@@ -17,6 +17,13 @@ A ideia é
 simples, você cria um arquivo, por exemplo, [db.json](db.json), contendo dados iniciais a serem consultados e atualizados via GraphQL. O comando `json-server --watch db.json` coloca à disposição
 uma API REST por meio da qual teremos acesso aos dados.
 
+### Modelo de dados
+
+Não poderia ser mais simples: usuários e empresas nas quais eles trabalham,
+conforme ilustrado abaixo.
+
+![](schema/domain.png)
+
 ### Acesso o banco de dados "fake"
 
 O acesso ao banco de dados será feita via [Axios](https://axios-http.com/). Novamente, a opção aqui é pela simplicidade e facilidade de
