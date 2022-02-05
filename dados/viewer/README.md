@@ -1,6 +1,6 @@
 ## Exibe GraphQL Schema
 
-- Crie o GraphQL SDL (Schema Definition Languenge), por exemplo, no arquivo **schema.graphql**.
+- Crie o GraphQL SDL (Schema Definition Languenge), por exemplo, no arquivo **../exemplo.graphql**.
 - `npm install`
-- `node server.js schema.graphql`
-- Abra o navegador no endereço indicado.
+- `npm run dev`
+- Abra o navegador http://localhost:9091.
