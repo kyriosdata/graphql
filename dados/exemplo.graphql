@@ -1,5 +1,12 @@
+"""
+Um **ser humano** que não necessariamente é um usuário.
+"""
 type Pessoa {
   id: ID!
+
+  """
+  O _nome_ atribuído à pessoa.
+  """
   nome: String
 }
 
@@ -14,6 +21,9 @@ type FarolConnection {
   nextToken: String
 }
 
+"""
+O usuário do sistema na perspectiva de autenticação e autorização.
+"""
 type Usuario {
   id: ID!
   title: String!
@@ -28,6 +38,9 @@ type UsuarioConnection {
 }
 
 type Query {
+  """
+  Recupera uma pessoa
+  """
   pessoa(id: ID!): Pessoa
   getFarol(id: ID!): Farol
   listFarols(
