@@ -1,11 +1,14 @@
 ## Users
 
-Vamos experimentar GraphQL. Usaremos um cliente que permite submeter requisições em GraphQL, assim não será necessário se preocupar com a
-interface (pelo menos enquanto aprendemos).
+Vamos experimentar GraphQL. 
 
-No lado do servidor teremos GraphQL em execução, além de um banco
-de dados "fake". Naturalmente, em um sistema "real", estaríamos fazendo uso de um banco de dados real como MySQL ou MongoDB, por
-exemplo. Contudo, dado que o foco está em GraphQL, vamos usar uma
+Usaremos um cliente que permite submeter requisições em GraphQL, 
+assim não será necessário se preocupar com a interface, pelo menos enquanto aprendemos.
+
+No lado do servidor teremos GraphQL (server) em execução, além de um banco
+de dados "fake". Naturalmente, num sistema "real", usaríamos de um banco 
+de dados real como MySQL ou MongoDB, por exemplo. Contudo, dado que o 
+foco está em GraphQL, vamos usar uma
 alternativa mais simples para o nosso aprendizado.
 
 ### Banco de dados "fake"
@@ -13,14 +16,18 @@ alternativa mais simples para o nosso aprendizado.
 O papel do nosso banco de dados será desempenhado pela ferramenta
 [json-server](https://github.com/typicode/json-server).
 
-A ideia é
-simples, você cria um arquivo, por exemplo, [db.json](db.json), contendo dados iniciais a serem consultados e atualizados via GraphQL. O comando `json-server --watch db.json` coloca à disposição
+A ideia é simples, por um arquivo, por exemplo, [db.json](db.json), 
+contendo dados iniciais a serem consultados e atualizados via GraphQL. 
+O comando `json-server --watch db.json` coloca à disposição
 uma API REST por meio da qual teremos acesso aos dados.
 
 ### Modelo de dados
 
 Não poderia ser mais simples: usuários e empresas nas quais eles trabalham,
 conforme ilustrado abaixo.
+
+![modelo](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/kyriosdata/graphql/main/users/schema/modelo.plantuml)
+
 
 ![](schema/domain.png)
 
