@@ -21,6 +21,7 @@ contendo dados iniciais a serem consultados e atualizados via GraphQL.
 O comando `json-server --watch db.json` coloca à disposição
 uma API REST por meio da qual teremos acesso aos dados.
 
+
 ### Modelo de dados
 
 Não poderia ser mais simples: usuários e empresas nas quais eles trabalham,
@@ -29,13 +30,17 @@ conforme ilustrado abaixo.
 ![modelo](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/kyriosdata/graphql/main/users/schema/modelo.plantuml)
 
 
-![](schema/domain.png)
-
 ### Acesso o banco de dados "fake"
 
-O acesso ao banco de dados será feita via [Axios](https://axios-http.com/). Novamente, a opção aqui é pela simplicidade e facilidade de
+O acesso ao banco de dados será feita via [Axios](https://axios-http.com/). 
+Novamente, a opção aqui é pela simplicidade e facilidade de
 uso. Desta forma, podemos nos concentrar no servidor GraphQL sem nos
 distrairmos.
+
+Num cenário real, requisições não só para uma fonte de dados pode
+ser necessária, assim como modelos diferentes, arquivos e até 
+serviços (microsserviços) podem ser necessárias para "montar"
+os dados esperados. 
 
 ### Servidor GraphQL
 

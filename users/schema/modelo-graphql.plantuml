@@ -1,0 +1,31 @@
+@startuml graphql
+
+title "Tipos (GraphQL)"
+
+hide circle
+hide methods
+hide empty members
+
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor #505050
+}
+
+class Empresa {
+    id
+    nome
+    endereco
+}
+
+class Pessoa {
+    id
+    nome
+    idade
+    empresa
+}
+
+
+Pessoa -right-> "0..1" Empresa: Trabalha para
+
+@enduml

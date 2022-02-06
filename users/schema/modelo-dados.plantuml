@@ -1,0 +1,31 @@
+@startuml dados
+
+title "Modelo de dados"
+
+hide circle
+hide methods
+hide empty members
+
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor #505050
+}
+
+class Empresa {
+    id
+    nome
+    endereco
+}
+
+class Pessoa {
+    id
+    nome
+    idade
+    empresaId
+}
+
+
+Pessoa -right-> "0..1" Empresa: Trabalha para
+
+@enduml

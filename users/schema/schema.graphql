@@ -1,0 +1,23 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: RootQueryType
+}
+
+type Empresa {
+    endereco: String
+    id: String
+    nome: String
+}
+
+type Pessoa {
+    empresa: Empresa
+    id: String
+    idade: Int
+    nome: String
+}
+
+type RootQueryType {
+    empresa(id: String): Empresa
+    pessoa(id: String): Pessoa
+}

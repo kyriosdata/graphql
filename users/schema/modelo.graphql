@@ -1,0 +1,11 @@
+type Pessoa {
+    id: ID!
+    nome: String!
+    idade: Int
+}
+
+type Empresa {
+    id: ID!
+    nome: String!
+    endereco: String
+}

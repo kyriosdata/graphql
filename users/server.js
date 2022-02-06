@@ -1,5 +1,5 @@
 const express = require("express");
-const expressGraphQL = require("express-graphql").graphqlHTTP;
+const { graphqlHTTP }= require("express-graphql");
 const schema = require("./schema/schema");
 
 // Configuração para desenvolvimento (propriedade graphiql com i abaixo)
@@ -9,8 +9,8 @@ const app = express();
 
 app.use(
   "/graphql",
-  expressGraphQL({
-    schema,
+  graphqlHTTP({
+    schema : schema,
     graphiql: true,
   })
 );
