@@ -2,7 +2,7 @@
   "description": "An example using GraphQL-Voyager",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js ../exemplo.graphql --watch ../exemplo.graphql"
+    "dev": "nodemon server.js ../../users/schema/schema.graphql --watch ../../users/schema/schema.graphql"
   },
   "dependencies": {
     "express": "4.16.3",

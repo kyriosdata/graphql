@@ -1,23 +1,41 @@
-# This file was generated based on ".graphqlconfig". Do not edit manually.
-
-schema {
-    query: RootQueryType
-}
-
+"""
+Empresas nas quais trabalham pessoas
+"""
 type Empresa {
+    """
+    O endereço da empresa
+    """
     endereco: String
     id: String
     nome: String
+    pessoas: [Pessoa]
 }
 
+"""
+Uma pessoa que colabora com uma empresa.
+"""
 type Pessoa {
+    """
+    Empresa com a qual a pessoa colabora.
+    """
     empresa: Empresa
     id: String
     idade: Int
     nome: String
 }
 
+type Mutation {
+    adicionaPessoa(empresaId: String, idade: Int!, nome: String!): Pessoa
+    atualizaPessoa(empresaId: String, id: String!, idade: Int, nome: String): Pessoa
+    removePessoa(id: String!): Pessoa
+}
+
 type RootQueryType {
     empresa(id: String): Empresa
     pessoa(id: String): Pessoa
+}
+
+schema {
+    query: RootQueryType
+    mutation: Mutation
 }
