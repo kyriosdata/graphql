@@ -2,7 +2,6 @@
 // Veja opção usando GraphQL Schema Language em
 // https://www.apollographql.com/blog/graphql/how-to-use-graphql-with-javascript-graphql-js-tutorial/
 
-const graphql = require("graphql");
 const axios = require("axios");
 const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema, GraphQLList, GraphQLNonNull} = require("graphql");
 
@@ -29,7 +28,6 @@ const PessoaType = new GraphQLObjectType({
         nome: {type: GraphQLString},
         idade: {type: GraphQLInt},
         empresa: {
-
             type: EmpresaType,
             resolve(parentValue, args) {
                 return axios
@@ -100,6 +98,20 @@ const mutation = new GraphQLObjectType({
             },
             resolve(parentValue, args) {
                 return axios.delete(`http://localhost:3000/pessoas/${args.id}`)
+                    .then(r => r.data);
+            }
+        },
+
+        atualizaPessoa: {
+            type: PessoaType,
+            args : {
+                id: { type: new GraphQLNonNull(GraphQLString)},
+                nome: { type: GraphQLString},
+                idade: { type: GraphQLInt},
+                empresaId: { type: GraphQLString}
+            },
+            resolve(parentValue, args) {
+                return axios.patch(`http://localhost:3000/pessoas/${args.id}`, args)
                     .then(r => r.data);
             }
         }
