@@ -1,5 +1,8 @@
 # graphql
 
-Aprendendo GraphQL.
+Aprendendo GraphQL por exemplos.
 
-- Em [users](users) você encontrará o básico (inicie por aqui).
+## Exemplos
+
+- [bem-vindo](bem-vindo) "o exemplo mais simples possível"
+- [pessoas](pessoas) "pessoas trabalham em empresas"
