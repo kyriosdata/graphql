@@ -58,6 +58,15 @@ const RootQuery = new GraphQLObjectType({
             },
         },
 
+        pessoas: {
+            type: new GraphQLList(PessoaType),
+            resolve(parentValue, args) {
+                return axios
+                    .get("http://localhost:3000/pessoas")
+                    .then(r => r.data);
+            }
+        },
+
         empresa: {
             type: EmpresaType,
             args: {

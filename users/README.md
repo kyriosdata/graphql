@@ -1,15 +1,21 @@
 ## Users
 
-Vamos experimentar GraphQL. 
+Vamos experimentar GraphQL num contexto onde "pessoas trabalham em empresas".  
 
-Usaremos um cliente que permite submeter requisições em GraphQL, 
-assim não será necessário se preocupar com a interface, pelo menos enquanto aprendemos.
+Usaremos um cliente **GraphiQL** (observe o **i**) que permite submeter requisições em GraphQL, 
+assim não será necessário desenvolver um cliente, pelo menos enquanto aprendemos.
 
-No lado do servidor teremos GraphQL (server) em execução, além de um banco
+No lado do servidor teremos GraphQL (_server_) em execução, além de um banco
 de dados "fake". Naturalmente, num sistema "real", usaríamos de um banco 
 de dados real como MySQL ou MongoDB, por exemplo. Contudo, dado que o 
 foco está em GraphQL, vamos usar uma
 alternativa mais simples para o nosso aprendizado.
+
+### Colocar em funcionamento
+
+- `npm run json:server` (disponibiliza sgbd "fabke")
+- `npm run start` (coloca em execução GraphQL Server)
+- http://localhost:4000/graphql 
 
 ### Banco de dados "fake"
 
