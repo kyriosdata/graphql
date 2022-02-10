@@ -13,9 +13,6 @@ async function databaseMongoDB() {
     const PASS = process.env.AZURE_MONGODB_PASSWORD;
 
     const MONGO_URI = `mongodb://${USER}:${PASS}@admissao.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@admissao@`;
-    if (!MONGO_URI) {
-        throw new Error("You must provide a MongoLab URI");
-    }
 
     mongoose.Promise = global.Promise;
     await mongoose.connect(MONGO_URI);
