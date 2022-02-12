@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/index.jsx',
   mode: "production",
   output: {
     path: '/',
@@ -12,7 +12,7 @@ module.exports = {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/
       },
       {
