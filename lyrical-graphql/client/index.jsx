@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Routes, Route, useHistory } from "react-router-dom";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import App from "./App.jsx";
@@ -18,8 +18,8 @@ const Root = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}>
-                    <Route path="list" element={<SongList />} />
-                    <Route path="create" element={<SongCreate />} />
+                    <Route path="songs/list" element={<SongList />} />
+                    <Route path="songs/create" element={<SongCreate />} />
                 </Route>
             </Routes>
         </BrowserRouter>

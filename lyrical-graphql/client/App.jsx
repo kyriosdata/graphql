@@ -12,8 +12,8 @@ class App extends React.Component {
                         paddingBottom: "1rem"
                     }}
                 >
-                    <Link to="/list">Exibe</Link> |{" "}
-                    <Link to="/create">Cria</Link>
+                    <Link to="songs/list">Exibe</Link> |{" "}
+                    <Link to="songs/create">Cria</Link>
                 </nav>
                 <Outlet/>
             </div>

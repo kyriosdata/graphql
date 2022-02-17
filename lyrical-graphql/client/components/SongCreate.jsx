@@ -1,6 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
 import {graphql} from "@apollo/client/react/hoc";
+import { Link, useNavigate } from "react-router-dom";
 
 class SongCreate extends React.Component {
     constructor(props) {
@@ -11,12 +12,22 @@ class SongCreate extends React.Component {
 
     onSubmit(evento) {
         evento.preventDefault();
+
+        //const navigate = useNavigate();
+
+        this.props.mutate({
+            variables: {
+                title: this.state.title
+            }
+        }).then(() => console.log("mutation executed ok"));
+
         console.log(" onSubmit...");
     }
 
     render() {
         return (
             <div>
+                <Link to="/">Home</Link>
                 <h3>Crie uma música</h3>
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <label>Título da música:</label>
@@ -37,4 +48,4 @@ mutation AddSong($title: String) {
 }
 `;
 
-export default SongCreate;
+export default graphql(mutation)(SongCreate);
