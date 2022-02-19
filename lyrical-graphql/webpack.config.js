@@ -1,9 +1,8 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
-module.exports = {
-  entry: './client/index.jsx',
-  mode: "production",
+export default {
+  entry: './client/index.js',
+  mode: "development",
   output: {
     path: '/',
     filename: 'bundle.js'

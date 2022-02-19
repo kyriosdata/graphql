@@ -1,12 +1,12 @@
-const express = require("express");
-const models = require("./models");
-const {graphqlHTTP} = require("express-graphql");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const schema = require("./schema/schema");
-const webpack = require("webpack");
-const webpackMiddleware = require("webpack-dev-middleware");
-const webpackConfig = require("../webpack.config");
+import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import {graphqlHTTP} from "express-graphql";
+import webpack from "webpack";
+import webpackMiddleware from "webpack-dev-middleware";
+
+import schema from "./schema/esquema.js";
+import webpackConfig from "../webpack.config.js";
 
 async function databaseMongoDB() {
     const USER = process.env.AZURE_MONGODB_USER;
@@ -39,5 +39,4 @@ app.use(
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
-
-module.exports = app;
+export default app;

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import gql from "graphql-tag";
-import {graphql} from "@apollo/client/react/hoc";
+import { gql } from "@apollo/client";
+import {graphql} from "@apollo/client/react/hoc/index.js";
 
 class SongList extends Component {
     renderSongs() {

@@ -1,6 +1,7 @@
 import React from "react";
-import gql from "graphql-tag";
-import {graphql} from "@apollo/client/react/hoc";
+import { gql } from "@apollo/client";
+import {graphql} from "@apollo/client/react/hoc/index.js";
+
 import { Link, useNavigate } from "react-router-dom";
 
 class SongCreate extends React.Component {

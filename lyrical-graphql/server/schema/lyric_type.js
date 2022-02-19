@@ -1,12 +1,16 @@
-const mongoose = require('mongoose');
-const graphql = require('graphql');
+import mongoose from "mongoose";
+import graphql from "graphql";
+
+import "../models/lyric.js";
+import SongType from "./song_type.js";
+
 const {
   GraphQLObjectType,
-  GraphQLList,
   GraphQLID,
   GraphQLInt,
   GraphQLString
 } = graphql;
+
 const Lyric = mongoose.model('lyric');
 
 const LyricType = new GraphQLObjectType({
@@ -16,7 +20,7 @@ const LyricType = new GraphQLObjectType({
     likes: { type: GraphQLInt },
     content: { type: GraphQLString },
     song: {
-      type: require('./song_type'),
+      type: SongType,
       resolve(parentValue) {
         return Lyric.findById(parentValue).populate('song')
           .then(lyric => {
@@ -28,4 +32,4 @@ const LyricType = new GraphQLObjectType({
   })
 });
 
-module.exports = LyricType;
+export default LyricType;

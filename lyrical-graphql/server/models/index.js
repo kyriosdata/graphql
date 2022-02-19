@@ -1,2 +1,3 @@
-require('./song');
-require('./lyric');
+import song from "./song";
+
+import lyric from "./lyric";

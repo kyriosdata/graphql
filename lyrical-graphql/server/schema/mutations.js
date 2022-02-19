@@ -1,10 +1,14 @@
-const graphql = require('graphql');
+import graphql from "graphql";
+
+import mongoose from "mongoose";
+
+import SongType from "./song_type.js";
+
+import LyricType from "./lyric_type.js";
+
 const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
-const mongoose = require('mongoose');
 const Song = mongoose.model('song');
 const Lyric = mongoose.model('lyric');
-const SongType = require('./song_type');
-const LyricType = require('./lyric_type');
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -45,4 +49,4 @@ const mutation = new GraphQLObjectType({
   }
 });
 
-module.exports = mutation;
+export default mutation;
