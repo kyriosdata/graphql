@@ -1,43 +1,37 @@
-import React from "react";
-import { gql } from "@apollo/client";
-import {graphql} from "@apollo/client/react/hoc/index.js";
+import React, {useState} from "react";
+import {gql} from "@apollo/client";
+import {graphql} from "@apollo/client/react/hoc";
+import {Link, useNavigate} from "react-router-dom";
 
-import { Link, useNavigate } from "react-router-dom";
+import fecthQuery from "../queries/fetchSongs.js";
 
-class SongCreate extends React.Component {
-    constructor(props) {
-        super(props);
+function SongCreate(props) {
+    const [title, setTitle] = useState("");
+    const navigate = useNavigate();
 
-        this.state = { title: ""}
-    }
-
-    onSubmit(evento) {
+    const onSubmit = (evento) => {
         evento.preventDefault();
 
-        //const navigate = useNavigate();
-
-        this.props.mutate({
-            variables: {
-                title: this.state.title
-            }
-        }).then(() => console.log("mutation executed ok"));
+        props.mutate({
+            variables: {title},
+            refetchQueries: [{query: fecthQuery}]
+        }).then(() => { navigate("/songs/list"); console.log("mutation executed ok for", title); });
 
         console.log(" onSubmit...");
     }
 
-    render() {
-        return (
-            <div>
-                <Link to="/">Home</Link>
-                <h3>Crie uma música</h3>
-                <form onSubmit={this.onSubmit.bind(this)}>
-                    <label>Título da música:</label>
-                    <input onChange={event => this.setState({ title: event.target.value})}
-                    value={this.state.title}/>
-                </form>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Link to="/">Home</Link>
+            <h3>Crie uma música</h3>
+            <form onSubmit={onSubmit}>
+                <label>Título da música:</label>
+                <input onChange={event => setTitle(event.target.value)}
+                       value={title.title}/>
+            </form>
+        </div>
+    )
+
 }
 
 const mutation = gql`
