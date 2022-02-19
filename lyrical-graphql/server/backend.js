@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from "mongoose";
-import bodyParser from "body-parser";
 import {graphqlHTTP} from "express-graphql";
 import webpack from "webpack";
 import webpackMiddleware from "webpack-dev-middleware";
@@ -28,7 +27,7 @@ const app = express();
 
 databaseMongoDB().then(() => { console.log("databaseMongoDB"); return "ok"; });
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(
     "/graphql",
     graphqlHTTP({
