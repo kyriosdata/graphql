@@ -3,14 +3,30 @@ import {graphql} from "@apollo/client/react/hoc";
 
 import query from "../queries/fetchSongs.js";
 import deleteSong from "../queries/deleteSong.js";
+import {useNavigate} from "react-router-dom";
 
-class SongList extends Component {
-    renderSongs() {
-        if (this.props.data.loading) {
+const SongList = (props) => {
+
+    const navigate = useNavigate();
+
+    function onSongDelete(id) {
+        console.log("delete song...");
+        props.mutate({
+            variables: {id},
+            refetchQueries: [{query}]
+        }).then(() => {
+            navigate("/songs/list");
+            console.log("mutation executed ok for", id);
+        });
+        ;
+    }
+
+    function renderSongs() {
+        if (props.data.loading) {
             return (<li>Carregando...</li>);
         }
 
-        const musicas = this.props.data.songs;
+        const musicas = props.data.songs;
 
         if (musicas.length == 0) {
             return (<li key={0}>Nenhuma música disponível</li>);
@@ -18,21 +34,22 @@ class SongList extends Component {
 
         return musicas.map(song => {
                 return (
-                    <li key={song.id}>{song.title}</li>
+                    <li key={song.id}>
+                        {song.title}
+                        <i className="material-icons" onClick={() => onSongDelete(song.id)}>delete</i>
+                    </li>
                 );
             }
         );
     }
 
-    render() {
-        return (
-            <div>
-                <ul>
-                    {this.renderSongs()}
-                </ul>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <ul>
+                {renderSongs()}
+            </ul>
+        </div>
+    );
 }
 
 export default graphql(deleteSong)(
