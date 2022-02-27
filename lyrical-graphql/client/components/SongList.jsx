@@ -41,7 +41,7 @@ const SongList = (props) => {
 
         return musicas.map(song => {
                 return (
-                    <li key={song.id} className="collection-item">
+                    <li key={song.id} className="collection-item mudanca">
                         {song.title}
                         <i className="material-icons secondary-content" onClick={() => onSongDelete(song.id)}>delete</i>
                     </li>
