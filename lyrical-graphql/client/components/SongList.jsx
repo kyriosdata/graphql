@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {graphql} from "@apollo/client/react/hoc";
 
 import query from "../queries/fetchSongs.js";
+import deleteSong from "../queries/deleteSong.js";
 
 class SongList extends Component {
     renderSongs() {
@@ -34,4 +35,6 @@ class SongList extends Component {
     }
 }
 
-export default graphql(query)(SongList);
+export default graphql(deleteSong)(
+    graphql(query)(SongList)
+);
