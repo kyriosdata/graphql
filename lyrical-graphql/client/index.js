@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import App from "./App.jsx";
 import SongList from "./components/SongList.jsx";
 import SongCreate from "./components/SongCreate.jsx";
+import SongDetail from "./components/SongDetail.jsx";
 
 const client = new ApolloClient({
     uri: 'http://localhost:4000/graphql',
@@ -20,6 +21,7 @@ const Root = () => {
                 <Route path="/" element={<App />}>
                     <Route path="songs/list" element={<SongList />} />
                     <Route path="songs/create" element={<SongCreate />} />
+                    <Route path="songs/:id" element={<SongDetail />} />
                 </Route>
             </Routes>
         </BrowserRouter>

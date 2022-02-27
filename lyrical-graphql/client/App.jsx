@@ -13,7 +13,9 @@ class App extends React.Component {
                     }}
                 >
                     <Link to="songs/list">Exibe</Link> |{" "}
-                    <Link to="songs/create">Cria</Link>
+                    <Link to="songs/create">Cria</Link> |{" "}
+                    <Link to="songs/1">Detalhe</Link> |{" "}
+                    <Link to="/">Home</Link>
                 </nav>
                 <Outlet/>
             </div>
