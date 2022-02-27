@@ -1,22 +1,29 @@
-import React, {Component} from "react";
+import React from "react";
 import {graphql} from "@apollo/client/react/hoc";
 
 import query from "../queries/fetchSongs.js";
 import deleteSong from "../queries/deleteSong.js";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 const SongList = (props) => {
 
-    const navigate = useNavigate();
+    // A opção por navigate foi usada em SongCreate
+    // (aqui segue uma alternativa)
+    // const navigate = useNavigate();
 
     function onSongDelete(id) {
         console.log("delete song...");
         props.mutate({
             variables: {id},
-            refetchQueries: [{query}]
+            // refetchQueries: [{query}]
         }).then(() => {
-            navigate("/songs/list");
-            console.log("mutation executed ok for", id);
+            // Estratégia usada em SongCreate
+            // navigate("/songs/list");
+            // console.log("mutation executed ok for", id);
+
+            // Esta opção está disponível porque query
+            // está associada ao presente componente.
+            props.data.refetch();
         });
         ;
     }
@@ -29,14 +36,14 @@ const SongList = (props) => {
         const musicas = props.data.songs;
 
         if (musicas.length == 0) {
-            return (<li key={0}>Nenhuma música disponível</li>);
+            return (<div key={0}>Nenhuma música disponível</div>);
         }
 
         return musicas.map(song => {
                 return (
-                    <li key={song.id}>
+                    <li key={song.id} className="collection-item">
                         {song.title}
-                        <i className="material-icons" onClick={() => onSongDelete(song.id)}>delete</i>
+                        <i className="material-icons secondary-content" onClick={() => onSongDelete(song.id)}>delete</i>
                     </li>
                 );
             }
@@ -45,7 +52,7 @@ const SongList = (props) => {
 
     return (
         <div>
-            <ul>
+            <ul className="collection">
                 {renderSongs()}
             </ul>
         </div>
