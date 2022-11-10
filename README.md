@@ -2,6 +2,14 @@
 
 Aprendendo GraphQL por exemplos.
 
+# Ferramentas
+
+- [Cliente](https://www.apollographql.com/docs/react/) com vários recursos, caching, paginação, ... e para vários frameworks como Vue, React, Angular e outros.
+- [Voyageer](https://github.com/IvanGoncharov/graphql-voyager) para visualizar o esquema. Se o esquema é complexo, então pode ser necessário para interagir e visualizá-lo.
+- [GraphQL Visual Editor](https://github.com/graphql-editor/graphql-editor) para edição de esquema de forma gráfica e execução de consultas, inclusive elaboração delas.
+- [GraphQL Engine](https://github.com/hasura/graphql-engine) é um GraphQL Server, como [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+- [Hasura Graphql](https://hasura.io) serviço em nuvem cuja documentação é útil para compreender o que GraphQL pode oferecer. 
+
 ## Exemplos
 
 - [bem-vindo](bem-vindo) "o exemplo mais simples possível"
