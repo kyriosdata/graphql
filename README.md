@@ -13,6 +13,7 @@ Aprendendo GraphQL por exemplos.
 - [Prisma](https://www.prisma.io) permite criar uma "visão" de tabelas que pode ser compreendida mais facilmente.
 - [Experimentar online](https://cloud.hasura.io/public/graphiql?header=content-type:application/json&endpoint=https://api.spacex.land/graphql)
 - [Code generator](https://the-guild.dev/graphql/codegen)
+- [GraphQL Documentation](https://github.com/brettchalupa/graphql-docs) gerar documentação de esquema.
 
 ## Exemplos
 
