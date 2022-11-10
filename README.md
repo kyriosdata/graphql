@@ -11,6 +11,7 @@ Aprendendo GraphQL por exemplos.
 - [Hasura Graphql](https://hasura.io) serviço em nuvem cuja documentação é útil para compreender o que GraphQL pode oferecer. 
 - [GraphiQL](https://github.com/graphql/graphiql) mais conhecido cliente gráfico para desenvolvimento e experimentação de consultas.
 - [Prisma](https://www.prisma.io) permite criar uma "visão" de tabelas que pode ser compreendida mais facilmente.
+- [Experimentar online](https://cloud.hasura.io/public/graphiql?header=content-type:application/json&endpoint=https://api.spacex.land/graphql)
 
 ## Exemplos
 
